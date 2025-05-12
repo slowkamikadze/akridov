@@ -1,0 +1,256 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #000000;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    position: relative;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: none;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    filter: blur(2px);
+    z-index: 0;
+}
+
+.cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 10%, rgba(255, 255, 255, 0) 70%);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+}
+
+.cursor:hover {
+    transform: scale(1.2);
+}
+
+#snow-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.info {
+    flex: 1;
+}
+
+.nickname-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.nickname {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+    100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.7); }
+}
+
+.badges {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.arrowdev {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url('assets/arrowdev.svg') no-repeat center;
+    background-size: contain;
+}
+
+.russia-flag {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url('https://img.icons8.com/?size=100&id=dHLUcDM_MwLT&format=png&color=000000') no-repeat center;
+    background-size: contain;
+}
+
+.status-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status {
+    margin: 5px 0 0;
+    font-size: 1rem;
+    opacity: 0.8;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    width: 35px;
+    height: 35px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    filter: brightness(1.3);
+}
+
+.youtube { background-image: url('https://img.icons8.com/ios-filled/50/ffffff/youtube.png'); }
+.tiktok { background-image: url('https://img.icons8.com/ios-filled/50/ffffff/tiktok.png'); }
+.instagram { background-image: url('https://img.icons8.com/ios-filled/50/ffffff/instagram.png'); }
+.x { background-image: url('https://img.icons8.com/ios-filled/50/ffffff/twitterx.png'); }
+.twitch { background-image: url('https://img.icons8.com/ios-filled/50/ffffff/twitch.png'); }
+.discord { background-image: url('https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png'); }
+.pinterest { background-image: url('https://img.icons8.com/ios-filled/50/ffffff/pinterest.png'); }
+.spotify { background-image: url('https://img.icons8.com/ios-filled/50/ffffff/spotify.png'); }
+.telegram-account { background-image: url('https://img.icons8.com/ios-filled/50/ffffff/telegram-app.png'); }
+
+.copyright {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 600px) {
+    .container {
+        max-width: 800px;
+        padding: 30px;
+        gap: 20px;
+    }
+
+    .profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .avatar {
+        width: 100px;
+        height: 100px;
+        border: 2px solid #ffffff;
+    }
+
+    .nickname {
+        font-size: 2rem;
+    }
+
+    .badges {
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .arrowdev,
+    .russia-flag {
+        width: 20px;
+        height: 20px;
+    }
+
+    .status {
+        font-size: 0.9rem;
+        line-height: 1.2;
+        padding: 0 10px;
+    }
+
+    .social-links {
+        gap: 15px;
+        padding: 0 10px;
+        justify-content: center;
+    }
+
+    .social-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .copyright {
+        font-size: 0.8rem;
+        padding: 0 10px;
+    }
+
+    .cursor {
+        display: none;
+    }
+
+    body::before {
+        filter: blur(1px);
+        opacity: 0.2;
+    }
+}
